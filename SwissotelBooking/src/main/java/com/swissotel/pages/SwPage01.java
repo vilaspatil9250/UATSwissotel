@@ -12,11 +12,9 @@ import com.swissotel.base.BaseClass;
 import com.swissotel.util.TestUtil;
 
 public class SwPage01 extends BaseClass {
-	
 
 	@FindBy(how = How.ID, using = "ddlDestination")
 	WebElement destination;
-	
 
 	@FindBy(how = How.ID, using = "ctl00_ctl00_cphMainContent_Content_txtArrivalDate")
 	WebElement arrivalDate;
@@ -26,26 +24,25 @@ public class SwPage01 extends BaseClass {
 
 	@FindBy(how = How.ID, using = "ctl00_ctl00_cphMainContent_FooterButton_btnCheckAvailability")
 	WebElement checkAvailability;
-	
-	public SwPage01()throws IOException{
+
+	public SwPage01() throws IOException {
 		PageFactory.initElements(driver, this);
 	}
 
 	public String validatePageTitle() {
 		return driver.getTitle();
 	}
-	
-	public SwPage02 checkavailability() throws IOException{
+
+	public SwPage02 checkavailability() throws IOException {
 		Select destinationlist = new Select(destination);
-		destinationlist.selectByVisibleText("Zurich, Switzerland");
+		destinationlist.selectByVisibleText("Ankara, Turkey");
 		arrivalDate.clear();
-		arrivalDate.sendKeys(TestUtil.ArrivalDate(30));
+		arrivalDate.sendKeys(TestUtil.arrivalDate());
 		departuredate.clear();
-		departuredate.sendKeys(TestUtil.ArrivalDate(31));
+		departuredate.sendKeys(TestUtil.departureDate());
 		checkAvailability.click();
 		return new SwPage02();
-	
-	}
 
+	}
 
 }

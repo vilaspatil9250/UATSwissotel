@@ -10,6 +10,9 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import com.swissotel.base.BaseClass;
+import com.swissotel.pages.CancelReservation;
+import com.swissotel.pages.ModifyReservation;
+import com.swissotel.pages.ReservationDetails;
 import com.swissotel.pages.SwPage01;
 import com.swissotel.pages.SwPage02;
 import com.swissotel.pages.SwPage03;
@@ -23,6 +26,9 @@ public class SWBooking extends BaseClass{
 	SwPage03 page03;
 	SwPage04 page04;
 	SwPage05 page05;
+	ReservationDetails reserdetails;
+	ModifyReservation modifyRes;
+	CancelReservation canRes;
 
 	public SWBooking() throws IOException {
 		super();
@@ -37,6 +43,9 @@ public class SWBooking extends BaseClass{
 		page03 = new SwPage03();
 		page04 = new SwPage04();
 		page05 = new SwPage05();
+		reserdetails = new ReservationDetails();
+		modifyRes = new ModifyReservation();
+		canRes = new CancelReservation();
 		
 	}
 
@@ -69,7 +78,35 @@ public class SWBooking extends BaseClass{
 	public void step5() throws Exception {
 		page05.getPageTitle();
 		page05.confirmNumber();
+		page05.closeSurvey();
+		page05.ModifyRes();
 	}
+	
+	@Test(priority=6, description = "Navigate to Reservation Details Page")
+	public void details() throws Exception {
+		reserdetails.getPageTitle();
+		reserdetails.ModifyRes();
+	}
+	
+	@Test(priority=7, description = "Modify Reservation")
+	public void modify() throws Exception {
+		modifyRes.getPageTitle();
+		modifyRes.modify();
+	}
+	
+	
+	@Test(priority=8, description = "Cancel Reservation")
+	public void cancel() throws Exception {
+		page05.ModifyRes();
+		reserdetails.CancelRes();
+		canRes.getPageTitle();
+		canRes.cancelWindow();
+		System.out.println("Booking Cancelled successfully.");
+//		canRes.CancelNumber();
+	}
+	
+	
+	
 	
 	@AfterClass
 	public void closeApplication() {

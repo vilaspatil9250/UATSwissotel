@@ -5,9 +5,11 @@
     <classes>
       <class name="com.swissotel.testcases.SWBooking">
         <methods>
-          <include name="step4"/>
+          <include name="cancel"/>
+          <include name="modify"/>
           <include name="step5"/>
           <include name="startBrowser"/>
+          <include name="details"/>
           <include name="closeApplication"/>
         </methods>
       </class> <!-- com.swissotel.testcases.SWBooking -->

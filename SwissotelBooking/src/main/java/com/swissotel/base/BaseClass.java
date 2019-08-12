@@ -49,6 +49,8 @@ public class BaseClass {
 		driver.get(prop.getProperty("URL"));
 	}
 
+	
+	
 	public void close() {
 		driver.close();
 	}
