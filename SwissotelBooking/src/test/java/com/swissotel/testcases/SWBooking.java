@@ -1,14 +1,22 @@
 package com.swissotel.testcases;
 
+import java.io.File;
 import java.io.IOException;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
+import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.MediaEntityBuilder;
+import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import com.swissotel.base.BaseClass;
 import com.swissotel.pages.CancelReservation;
 import com.swissotel.pages.ModifyReservation;
@@ -18,9 +26,10 @@ import com.swissotel.pages.SwPage02;
 import com.swissotel.pages.SwPage03;
 import com.swissotel.pages.SwPage04;
 import com.swissotel.pages.SwPage05;
+import com.swissotel.util.TestUtil;
 
-public class SWBooking extends BaseClass{
-	WebDriver driver;
+public class SWBooking extends BaseClass {
+//	WebDriver driver;
 	SwPage01 page01;
 	SwPage02 page02;
 	SwPage03 page03;
@@ -29,9 +38,19 @@ public class SWBooking extends BaseClass{
 	ReservationDetails reserdetails;
 	ModifyReservation modifyRes;
 	CancelReservation canRes;
+	ExtentReports report;
+	ExtentTest logger;
 
 	public SWBooking() throws IOException {
 		super();
+	}
+
+	@BeforeSuite
+	public void setUpSuite() {
+//		ExtentHtmlReporter extent = new ExtentHtmlReporter(new File(System.getProperty("user.dir"+"/Report/SWUAT_"+TestUtil.getCurrentDateTime() + ".html")));
+		ExtentHtmlReporter extent = new ExtentHtmlReporter("./Report/demo02.html");
+		report = new ExtentReports();
+		report.attachReporter(extent);
 	}
 
 	@BeforeClass
@@ -46,56 +65,61 @@ public class SWBooking extends BaseClass{
 		reserdetails = new ReservationDetails();
 		modifyRes = new ModifyReservation();
 		canRes = new CancelReservation();
-		
+		//ExtentHtmlReporter extent = new ExtentHtmlReporter("./Report/demo02.html");
+		//report = new ExtentReports();
+		//report.attachReporter(extent);
+
 	}
 
-	@Test(priority=1, description = "Navigate to Step01")
+	@Test(priority = 1, description = "Navigate to Step01")
 	public void step1() throws Exception {
+		logger = report.createTest("Step 01 ");
 		String pageTitle = page01.validatePageTitle();
+		logger.info("Navigated to Step1");
 		Assert.assertEquals(pageTitle, "- Swissôtel Hotels And Resorts");
 		page01.checkavailability();
+		logger.pass("data entered in Step1 successfully");
 	}
-	
-	@Test(priority=2, description = "Navigate to Step02")
+
+	@Test(priority = 2, description = "Navigate to Step02")
 	public void step2() throws Exception {
 		page02.getPageTitle();
 		page02.selectRoomContinue();
 	}
-	
-	@Test(priority=3, description = "Navigate to Step03")
+
+	@Test(priority = 3, description = "Navigate to Step03")
 	public void step3() throws Exception {
 		page03.getPageTitle();
-		page03.addExtraContinue();	
+		page03.addExtraContinue();
 	}
 
-	@Test(priority=4, description = "Navigate to Step04")
+	@Test(priority = 4, description = "Navigate to Step04")
 	public void step4() throws Exception {
 		page04.getPageTitle();
-		page04.enterdetails();	
+		page04.enterdetails();
 	}
-		
-	@Test(priority=5, description = "Navigate to Step05")
+
+	@Test(priority = 5, description = "Navigate to Step05")
 	public void step5() throws Exception {
 		page05.getPageTitle();
 		page05.confirmNumber();
 		page05.closeSurvey();
 		page05.ModifyRes();
 	}
-	
-	@Test(priority=6, description = "Navigate to Reservation Details Page")
+
+	@Test(priority = 6, description = "Navigate to Reservation Details Page")
 	public void details() throws Exception {
 		reserdetails.getPageTitle();
 		reserdetails.ModifyRes();
 	}
-	
-	@Test(priority=7, description = "Modify Reservation")
+
+	@Test(priority = 7, description = "Modify Reservation")
 	public void modify() throws Exception {
 		modifyRes.getPageTitle();
 		modifyRes.modify();
 	}
-	
-	
-	@Test(priority=8, description = "Cancel Reservation")
+
+	@Test(priority = 8, description = "Cancel Reservation")
 	public void cancel() throws Exception {
 		page05.ModifyRes();
 		reserdetails.CancelRes();
@@ -105,14 +129,24 @@ public class SWBooking extends BaseClass{
 //		canRes.CancelNumber();
 	}
 	
-	
-	
-	
+	@AfterMethod
+	public void tearDown(ITestResult result) throws IOException {
+		if (result.getStatus() == ITestResult.FAILURE) {
+			logger.fail(result.getThrowable().getMessage(),
+					MediaEntityBuilder.createScreenCaptureFromPath(TestUtil.getScreenshot(driver)).build());
+		}
+		else if(result.getStatus() == ITestResult.SUCCESS) {
+			logger.pass("TC passed",
+					MediaEntityBuilder.createScreenCaptureFromPath(TestUtil.getScreenshot(driver)).build());
+		}
+		report.flush();
+	}
+
 	@AfterClass
 	public void closeApplication() {
 		close();
 		System.out.println("Browser Closed");
-		
+
 	}
 
 }

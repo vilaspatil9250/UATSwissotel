@@ -29,10 +29,10 @@ public class BaseClass {
 
 		if (browsername.equalsIgnoreCase("chrome")) {
 			System.setProperty("webdriver.chrome.driver",
-					"D:\\Software Set Up\\Selenium\\WedDrivers\\chromedriver.exe");
+					"./Drivers/chromedriver.exe");
 			driver = new ChromeDriver();
 		} else if (browsername.equalsIgnoreCase("firefox")) {
-			System.setProperty("webdriver.gecko.driver", "D:\\Software Set Up\\Selenium\\WedDrivers\\geckodriver.exe");
+			System.setProperty("webdriver.gecko.driver", "./Drivers/geckodriver.exe");
 			driver = new FirefoxDriver();
 		}
 

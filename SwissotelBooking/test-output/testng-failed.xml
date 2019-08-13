@@ -5,10 +5,14 @@
     <classes>
       <class name="com.swissotel.testcases.SWBooking">
         <methods>
+          <include name="setUpSuite"/>
           <include name="cancel"/>
           <include name="modify"/>
+          <include name="step4"/>
           <include name="step5"/>
           <include name="startBrowser"/>
+          <include name="tearDown"/>
+          <include name="step3"/>
           <include name="details"/>
           <include name="closeApplication"/>
         </methods>
