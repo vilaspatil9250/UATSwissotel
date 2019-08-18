@@ -12,6 +12,8 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.io.FileHandler;
 
+import com.assertthat.selenium_shutterbug.core.Shutterbug;
+import com.assertthat.selenium_shutterbug.utils.web.ScrollStrategy;
 import com.swissotel.base.BaseClass;
 
 public class TestUtil extends BaseClass {
@@ -21,8 +23,8 @@ public class TestUtil extends BaseClass {
 		super();
 	}
 
-	public static long PAGE_LOAD_TIMEOUT = 5;
-	public static long IMPLICIT_WAIT= 10;
+	public static long PAGE_LOAD_TIMEOUT = 120;
+	public static long IMPLICIT_WAIT= 60;
 	
 	public static String arrivalDate(){
 		DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
@@ -71,6 +73,11 @@ public class TestUtil extends BaseClass {
 		Date currentDate = new Date();
 		return customFormat.format(currentDate);
 		
+	}
+	
+	public static void screenshot() {
+	System.out.println("Screenshot method");
+//		Shutterbug.shootPage(driver, ScrollStrategy.BOTH_DIRECTIONS, 2000, true).withName(TestUtil.getCurrentDateTime()).save("./Screenshots/");
 	}
 	
 	

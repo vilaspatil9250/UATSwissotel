@@ -9,10 +9,12 @@
           <include name="cancel"/>
           <include name="modify"/>
           <include name="step4"/>
+          <include name="step2"/>
           <include name="step5"/>
           <include name="startBrowser"/>
           <include name="tearDown"/>
           <include name="step3"/>
+          <include name="step1"/>
           <include name="details"/>
           <include name="closeApplication"/>
         </methods>

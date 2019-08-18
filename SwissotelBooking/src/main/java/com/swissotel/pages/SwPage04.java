@@ -68,7 +68,7 @@ public class SwPage04 extends BaseClass {
 		System.out.println("Page 4 Title : " + driver.getTitle());
 	}
 	
-	public SwPage05 enterdetails() throws Exception{
+	public void enterdetails() throws Exception{
 		ExcelData excel = new ExcelData();	
 	Select titlelist = new Select(title);
 	titlelist.selectByValue(excel.fieldvalue(2));
@@ -99,9 +99,12 @@ public class SwPage04 extends BaseClass {
 	year.sendKeys(excel.fieldvaluenum(16));
 	
 	termsconditions.click();
-	submitdetails.click();
-	return new SwPage05();
 	}
-	
+
+	public SwPage05 submitdetails() throws Exception {
+		clickAction(submitdetails);
+//		submitdetails.click();
+		return new SwPage05();
+	}
 
 }

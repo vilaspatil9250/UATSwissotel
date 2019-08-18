@@ -3,6 +3,7 @@ package com.swissotel.pages;
 import java.io.IOException;
 
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
@@ -26,12 +27,14 @@ public class ReservationDetails extends BaseClass {
 	}
 
 	public ModifyReservation ModifyRes() throws Exception {
-		modres.click();
+		clickAction(modres);
+//		modres.click();
 		return new ModifyReservation();
 	}
 
 	public CancelReservation CancelRes() throws Exception {
-		cancelres.click();
+		clickAction(cancelres);
+//		cancelres.click();
 		return new CancelReservation();
 	}
 	

@@ -42,8 +42,8 @@ public class CancelReservation extends BaseClass {
 				String pagename = "Title of Cancel Window = " + driver.getTitle();
 				System.out.println(pagename);
 				cancellink.click();
-				driver.close();
-				driver.switchTo().window(parentWinHandle);
+//				driver.close();
+//				driver.switchTo().window(parentWinHandle);
 			}
 			
 		}

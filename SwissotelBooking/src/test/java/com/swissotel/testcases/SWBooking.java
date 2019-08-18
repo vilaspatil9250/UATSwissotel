@@ -13,6 +13,8 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
+import com.assertthat.selenium_shutterbug.core.Shutterbug;
+import com.assertthat.selenium_shutterbug.utils.web.ScrollStrategy;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.MediaEntityBuilder;
@@ -65,9 +67,6 @@ public class SWBooking extends BaseClass {
 		reserdetails = new ReservationDetails();
 		modifyRes = new ModifyReservation();
 		canRes = new CancelReservation();
-		//ExtentHtmlReporter extent = new ExtentHtmlReporter("./Report/demo02.html");
-		//report = new ExtentReports();
-		//report.attachReporter(extent);
 
 	}
 
@@ -77,54 +76,74 @@ public class SWBooking extends BaseClass {
 		String pageTitle = page01.validatePageTitle();
 		logger.info("Navigated to Step1");
 		Assert.assertEquals(pageTitle, "- Swissôtel Hotels And Resorts");
-		page01.checkavailability();
+		page01.enterdata();
 		logger.pass("data entered in Step1 successfully");
+		TestUtil.screenshot();
+		page01.checkavailability();
 	}
 
-	@Test(priority = 2, description = "Navigate to Step02")
+	@Test(priority = 2, description = "Navigate to Step02", dependsOnMethods = {"step1"})
 	public void step2() throws Exception {
+		logger = report.createTest("Step 02");
 		page02.getPageTitle();
+		page02.enterdata();
+		TestUtil.screenshot();
 		page02.selectRoomContinue();
 	}
 
-	@Test(priority = 3, description = "Navigate to Step03")
+	@Test(priority = 3, description = "Navigate to Step03", dependsOnMethods = {"step2"})
 	public void step3() throws Exception {
+		logger = report.createTest("Step 03");
+		TestUtil.screenshot();
 		page03.getPageTitle();
 		page03.addExtraContinue();
 	}
 
-	@Test(priority = 4, description = "Navigate to Step04")
+	@Test(priority = 4, description = "Navigate to Step04", dependsOnMethods = {"step3"})
 	public void step4() throws Exception {
+		logger = report.createTest("Step 04");
 		page04.getPageTitle();
 		page04.enterdetails();
+		TestUtil.screenshot();
+		page04.submitdetails();
 	}
 
-	@Test(priority = 5, description = "Navigate to Step05")
+	@Test(priority = 5, description = "Navigate to Step05", dependsOnMethods = {"step4"})
 	public void step5() throws Exception {
+		logger = report.createTest("Step 05");
+		TestUtil.screenshot();
 		page05.getPageTitle();
 		page05.confirmNumber();
 		page05.closeSurvey();
 		page05.ModifyRes();
 	}
 
-	@Test(priority = 6, description = "Navigate to Reservation Details Page")
+	@Test(priority = 6, description = "Navigate to Reservation Details Page", dependsOnMethods = {"step5"})
 	public void details() throws Exception {
+		logger = report.createTest("Reservation Details");
+		TestUtil.screenshot();
 		reserdetails.getPageTitle();
 		reserdetails.ModifyRes();
 	}
 
-	@Test(priority = 7, description = "Modify Reservation")
+	@Test(priority = 7, description = "Modify Reservation", dependsOnMethods = {"details"})
 	public void modify() throws Exception {
+		logger = report.createTest("Modify Reservation");
 		modifyRes.getPageTitle();
+		modifyRes.enterdata();
+		TestUtil.screenshot();
 		modifyRes.modify();
 	}
-
-	@Test(priority = 8, description = "Cancel Reservation")
+	
+	@Test(priority = 8, description = "Cancel Reservation", dependsOnMethods = {"modify"})
 	public void cancel() throws Exception {
+		logger = report.createTest("Cancel Reservation");
+		TestUtil.screenshot();
 		page05.ModifyRes();
 		reserdetails.CancelRes();
 		canRes.getPageTitle();
 		canRes.cancelWindow();
+		TestUtil.screenshot();
 		System.out.println("Booking Cancelled successfully.");
 //		canRes.CancelNumber();
 	}
@@ -132,21 +151,20 @@ public class SWBooking extends BaseClass {
 	@AfterMethod
 	public void tearDown(ITestResult result) throws IOException {
 		if (result.getStatus() == ITestResult.FAILURE) {
-			logger.fail(result.getThrowable().getMessage(),
-					MediaEntityBuilder.createScreenCaptureFromPath(TestUtil.getScreenshot(driver)).build());
+			logger.fail(result.getThrowable().getMessage());
 		}
 		else if(result.getStatus() == ITestResult.SUCCESS) {
-			logger.pass("TC passed",
-					MediaEntityBuilder.createScreenCaptureFromPath(TestUtil.getScreenshot(driver)).build());
+			logger.pass("TC passed");
+//					MediaEntityBuilder.createScreenCaptureFromPath(TestUtil.getScreenshot(driver)).build());
 		}
 		report.flush();
 	}
 
 	@AfterClass
-	public void closeApplication() {
+	public void closeApplication() throws Exception {
+		Thread.sleep(5000);
 		close();
 		System.out.println("Browser Closed");
-
 	}
 
 }

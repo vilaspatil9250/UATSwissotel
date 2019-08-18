@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.Set;
 
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
@@ -58,7 +59,8 @@ public class SwPage05 extends BaseClass {
 	}
 
 	public ReservationDetails ModifyRes() throws Exception {
-		modifyreservation.click();
+		clickAction(modifyreservation);
+//		modifyreservation.click();
 		return new ReservationDetails();
 	}
 	

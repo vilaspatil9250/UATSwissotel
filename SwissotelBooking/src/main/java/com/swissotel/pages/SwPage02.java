@@ -35,27 +35,30 @@ public class SwPage02 extends BaseClass {
 	}
 
 	public void SelectRoomGroup() {
-		WebElement roomgroup = driver.findElement(By.xpath("//*[@id='btnContentContainer']"));
-		roomgroup.click();
+		WebElement roomgroup = driver.findElement(By.xpath("//button[@id='btnContentContainer']"));
+		clickAction(roomgroup);
+//		roomgroup.click();
 	}
 
 	public void SelectRoomType() {
-		WebElement roomgtype = driver.findElement(By.xpath("//*[@id='btnRoomContentContainer']"));
-		roomgtype.click();
+		WebElement roomgtype = driver.findElement(By.xpath("//button[@id='btnRoomContentContainer']"));
+		clickAction(roomgtype);
+//		roomgtype.click();
 	}
 
 	@FindBy(how = How.ID, using = "ctl00_ctl00_cphMainContent_Content_rptRCMain_ctl00_rptRCRoomContainer_ctl00_rptRooms_ctl00_lnkbtnSlectContinue")
 	WebElement selectRoom;
 
-	public SwPage03 selectRoomContinue() throws IOException {
+	public void enterdata() throws IOException {
 //		SelectRoomGroup("Daily Flexible Rate");
 		// SelectRoomGroup("Room only - Non Refundable Save 10%");
 		// SelectRoomType("Classic");
 		SelectRoomGroup();
 		SelectRoomType();
-		Actions action = new Actions(driver);
-		action.moveToElement(selectRoom).click().build().perform();
-//		selectRoom.click();
+	}
+	
+	public SwPage03 selectRoomContinue() throws IOException {
+		clickAction(selectRoom);
 		return new SwPage03();
 	}
 }

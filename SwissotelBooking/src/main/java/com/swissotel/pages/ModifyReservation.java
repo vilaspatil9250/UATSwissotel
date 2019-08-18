@@ -27,13 +27,16 @@ public class ModifyReservation extends BaseClass {
 		System.out.println("Modify Reservation Page Title : " + driver.getTitle());
 	}
 
-	public SwPage05 modify() throws Exception {
+	public void enterdata() throws Exception {
 		arrivaldate.clear();
 		arrivaldate.sendKeys(TestUtil.ModifyarrivalDate());
 		departuredate.clear();
 		departuredate.sendKeys(TestUtil.ModifydepartureDate());
-		submitchanges.click();
-		return new SwPage05();
 	}
 
+	public SwPage05 modify() throws Exception {
+		clickAction(submitchanges);
+//		submitchanges.click();
+		return new SwPage05();
+	}
 }

@@ -12,6 +12,10 @@ import com.swissotel.base.BaseClass;
 import com.swissotel.util.TestUtil;
 
 public class SwPage01 extends BaseClass {
+	
+	@FindBy(how = How.ID, using = "ally_Close")
+	WebElement allybanner;
+	
 
 	@FindBy(how = How.ID, using = "ddlDestination")
 	WebElement destination;
@@ -33,14 +37,19 @@ public class SwPage01 extends BaseClass {
 		return driver.getTitle();
 	}
 
-	public SwPage02 checkavailability() throws IOException {
+	public void enterdata() throws IOException {
+		allybanner.click();
 		Select destinationlist = new Select(destination);
 		destinationlist.selectByVisibleText("Ankara, Turkey");
 		arrivalDate.clear();
 		arrivalDate.sendKeys(TestUtil.arrivalDate());
 		departuredate.clear();
 		departuredate.sendKeys(TestUtil.departureDate());
-		checkAvailability.click();
+	}
+	
+	public SwPage02 checkavailability() throws IOException {
+		clickAction(checkAvailability);
+//		checkAvailability.click();
 		return new SwPage02();
 
 	}

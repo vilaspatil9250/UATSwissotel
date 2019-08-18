@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
@@ -24,7 +25,8 @@ public class SwPage03 extends BaseClass {
 	}
 
 	public SwPage04 addExtraContinue() throws Exception{
-		step3contiunueButton.click();
+		clickAction(step3contiunueButton);
+//		step3contiunueButton.click();
 		return new SwPage04();
 		
 	}
