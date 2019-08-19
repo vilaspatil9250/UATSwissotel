@@ -71,32 +71,32 @@ public class SwPage04 extends BaseClass {
 	public void enterdetails() throws Exception{
 		ExcelData excel = new ExcelData();	
 	Select titlelist = new Select(title);
-	titlelist.selectByValue(excel.fieldvalue(2));
+	titlelist.selectByValue(excel.fieldvalue(4));
 	
-	firstname.sendKeys(excel.fieldvalue(3));
-	lastname.sendKeys(excel.fieldvalue(4));
+	firstname.sendKeys(excel.fieldvalue(5));
+	lastname.sendKeys(excel.fieldvalue(6));
 	
 	Select prefixlist = new Select(prefix);
-	prefixlist.selectByValue(excel.fieldvaluenum(5));
+	prefixlist.selectByValue(excel.fieldvaluenum(7));
 	
-	telephone.sendKeys(excel.fieldvaluenum(6));
-	email.sendKeys(excel.fieldvalue(7));
-	addresslineone.sendKeys(excel.fieldvalue(8));
+	telephone.sendKeys(excel.fieldvaluenum(8));
+	email.sendKeys(excel.fieldvalue(9));
+	addresslineone.sendKeys(excel.fieldvalue(10));
 	
 	Select countrylist = new Select(country);
-	countrylist.selectByValue(excel.fieldvalue(9));
+	countrylist.selectByValue(excel.fieldvalue(11));
 	
-	city.sendKeys(excel.fieldvalue(10));
-	zipcode.sendKeys(excel.fieldvaluenum(12));
+	city.sendKeys(excel.fieldvalue(12));
+	zipcode.sendKeys(excel.fieldvaluenum(14));
 	
 	Select cardtypelist = new Select(cardtype);
 	cardtypelist.selectByValue("DC");
 	
-	cardnumber.sendKeys(excel.fieldvalue(13));
-	cardtypelist.selectByValue(excel.fieldvalue(14));
+	cardnumber.sendKeys(excel.fieldvalue(15));
+	cardtypelist.selectByValue(excel.fieldvalue(16));
 	
-	month.sendKeys(excel.fieldvaluenum(15));
-	year.sendKeys(excel.fieldvaluenum(16));
+	month.sendKeys(excel.fieldvaluenum(17));
+	year.sendKeys(excel.fieldvaluenum(18));
 	
 	termsconditions.click();
 	}

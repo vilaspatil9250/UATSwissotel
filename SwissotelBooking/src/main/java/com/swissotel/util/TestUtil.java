@@ -76,9 +76,12 @@ public class TestUtil extends BaseClass {
 	}
 	
 	public static void screenshot() {
+		if(browsername.equalsIgnoreCase("firefox")) {
 	System.out.println("Screenshot method");
-//		Shutterbug.shootPage(driver, ScrollStrategy.BOTH_DIRECTIONS, 2000, true).withName(TestUtil.getCurrentDateTime()).save("./Screenshots/");
-	}
+		} else {
+		Shutterbug.shootPage(driver, ScrollStrategy.BOTH_DIRECTIONS, 2000, true).withName(TestUtil.getCurrentDateTime()).save("./Screenshots/");
+		}
+		}
 	
 	
 }

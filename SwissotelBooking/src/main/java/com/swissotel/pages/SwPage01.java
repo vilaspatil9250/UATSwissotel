@@ -9,6 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
 import com.swissotel.base.BaseClass;
+import com.swissotel.base.ExcelData;
 import com.swissotel.util.TestUtil;
 
 public class SwPage01 extends BaseClass {
@@ -37,14 +38,17 @@ public class SwPage01 extends BaseClass {
 		return driver.getTitle();
 	}
 
-	public void enterdata() throws IOException {
-		allybanner.click();
+	public void enterdata() throws Exception {
+		//allybanner.click();
+		ExcelData excel = new ExcelData();
 		Select destinationlist = new Select(destination);
-		destinationlist.selectByVisibleText("Ankara, Turkey");
+		destinationlist.selectByVisibleText(excel.fieldvalue(1));
 		arrivalDate.clear();
-		arrivalDate.sendKeys(TestUtil.arrivalDate());
+//		arrivalDate.sendKeys(TestUtil.arrivalDate());
+		arrivalDate.sendKeys(excel.fieldvalue(2));
 		departuredate.clear();
-		departuredate.sendKeys(TestUtil.departureDate());
+//		departuredate.sendKeys(TestUtil.departureDate());
+		departuredate.sendKeys(excel.fieldvalue(3));
 	}
 	
 	public SwPage02 checkavailability() throws IOException {

@@ -10,6 +10,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
@@ -30,7 +31,6 @@ public class BaseClass {
 		prop.load(ip);
 	}
 
-	@SuppressWarnings("deprecation")
 	public static void initization() {
 
 		browsername = prop.getProperty("Browser");
@@ -40,13 +40,14 @@ public class BaseClass {
 //			WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver();
 		} else if (browsername.equalsIgnoreCase("firefox")) {
-//			System.setProperty("webdriver.firefox.marionette", "./Drivers/geckodriver.exe");
 			System.setProperty("webdriver.gecko.driver", "./Drivers/geckodriver.exe");
-//			DesiredCapabilities capabilities = DesiredCapabilities.firefox();
-//			capabilities.setCapability("marionette",true);
 //			WebDriverManager.firefoxdriver().setup();
 			driver = new FirefoxDriver();
+		} else if (browsername.equalsIgnoreCase("IE")) {
+			System.setProperty("webdriver.ie.driver", "./Drivers/IEDriverServer.exe");
+			driver = new InternetExplorerDriver();
 		}
+		
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
 		driver.manage().timeouts().pageLoadTimeout(TestUtil.PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
