@@ -33,7 +33,7 @@ public class CancelReservation extends BaseClass {
 	WebElement pageLabel;
 	
 
-	public void cancelWindow() throws Exception {
+	public SwPage05 cancelWindow() throws Exception {
 		String parentWinHandle = driver.getWindowHandle();
 		Set<String> winHandles = driver.getWindowHandles();
 		for (String handle : winHandles) {
@@ -42,23 +42,13 @@ public class CancelReservation extends BaseClass {
 				String pagename = "Title of Cancel Window = " + driver.getTitle();
 				System.out.println(pagename);
 				cancellink.click();
-//				driver.close();
-//				driver.switchTo().window(parentWinHandle);
 			}
-			
 		}
-//		return new SwPage05();
+		driver.switchTo().window(parentWinHandle);	
+		return new SwPage05();
 	}
 
-/*	public void CancelNumber() {
-//		String parentWinHandle = driver.getWindowHandle();
-//		driver.switchTo().window(parentWinHandle);
-//		allyBanner.click();
-		getPageTitle();
-		System.out.println("Page Name = " + pageLabel.getText());
-//		String CancellationNumber = cancelnum.getText();
-//		System.out.println("Booking Cancellation Number = " + CancellationNumber);
-	}*/
+
 	
 	
 }

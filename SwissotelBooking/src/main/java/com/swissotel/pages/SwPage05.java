@@ -12,19 +12,26 @@ import org.openqa.selenium.support.PageFactory;
 import com.swissotel.base.BaseClass;
 
 public class SwPage05 extends BaseClass {
+	public String  expectedpagename = "CONFIRMATION"; 
 
 	public SwPage05() throws Exception {
 		PageFactory.initElements(driver, this);
 	}
-
+	@FindBy(how = How.ID, using = "ctl00_ctl00_cphMainContent_PageTitle_lblConfirmation")
+	WebElement pagename;
+	
 	@FindBy(how = How.ID, using = "ctl00_ctl00_cphMainContent_Content_lblConfirmationNosValue")
 	WebElement confirmnum;
 
-	@FindBy(how = How.LINK_TEXT, using="Modify Reservation")
+	@FindBy(how = How.LINK_TEXT, using = "Modify Reservation")
 	WebElement modifyreservation;
-	
+
 	@FindBy(how = How.XPATH, using = "//*[@id='ctl00_ctl00_cphMainContent_Content_lblCancellationNoValue']")
 	WebElement cancelnum;
+
+	public String actualpagename() {
+		return pagename.getText();
+	}
 	
 	public void getPageTitle() {
 		System.out.println("Page 5 Title : " + driver.getTitle());
@@ -34,11 +41,9 @@ public class SwPage05 extends BaseClass {
 		String ConfirmationNumber = confirmnum.getText();
 		System.out.println("Booking Confirmation Number = " + ConfirmationNumber);
 	}
-	
+
 	public void CancelNumber() {
-		String parentWinHandle = driver.getWindowHandle();
-		driver.switchTo().window(parentWinHandle);
-		String CancellationNumber = cancelnum.getText();
+		String CancellationNumber = cancelnum.getText().toString();
 		System.out.println("Booking Cancellation Number = " + CancellationNumber);
 	}
 
@@ -63,8 +68,5 @@ public class SwPage05 extends BaseClass {
 //		modifyreservation.click();
 		return new ReservationDetails();
 	}
-	
-	
-	
-	
+
 }

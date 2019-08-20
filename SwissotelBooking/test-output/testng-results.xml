@@ -2,140 +2,140 @@
 <testng-results skipped="0" failed="0" ignored="0" total="8" passed="8">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="226960" started-at="2019-08-19T16:51:37Z" finished-at="2019-08-19T16:55:24Z">
+  <suite name="Default suite" duration-ms="323057" started-at="2019-08-20T09:00:51Z" finished-at="2019-08-20T09:06:14Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="226960" started-at="2019-08-19T16:51:37Z" finished-at="2019-08-19T16:55:24Z">
+    <test name="Default test" duration-ms="323057" started-at="2019-08-20T09:00:51Z" finished-at="2019-08-20T09:06:14Z">
       <class name="com.swissotel.testcases.SWBooking">
-        <test-method status="PASS" signature="setUpSuite()[pri:0, instance:com.swissotel.testcases.SWBooking@136e637]" name="setUpSuite" is-config="true" duration-ms="245" started-at="2019-08-19T16:51:37Z" finished-at="2019-08-19T16:51:37Z">
+        <test-method status="PASS" signature="setUpSuite()[pri:0, instance:com.swissotel.testcases.SWBooking@610694f1]" name="setUpSuite" is-config="true" duration-ms="158" started-at="2019-08-20T09:00:51Z" finished-at="2019-08-20T09:00:51Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpSuite -->
-        <test-method status="PASS" signature="startBrowser()[pri:0, instance:com.swissotel.testcases.SWBooking@136e637]" name="startBrowser" is-config="true" duration-ms="35034" started-at="2019-08-19T16:51:37Z" finished-at="2019-08-19T16:52:12Z">
+        <test-method status="PASS" signature="startBrowser()[pri:0, instance:com.swissotel.testcases.SWBooking@610694f1]" name="startBrowser" is-config="true" duration-ms="12408" started-at="2019-08-20T09:00:51Z" finished-at="2019-08-20T09:01:03Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startBrowser -->
-        <test-method status="PASS" signature="step1()[pri:1, instance:com.swissotel.testcases.SWBooking@136e637]" name="step1" duration-ms="24222" started-at="2019-08-19T16:52:12Z" description="Navigate to Step01" finished-at="2019-08-19T16:52:37Z">
+        <test-method status="PASS" signature="step1()[pri:1, instance:com.swissotel.testcases.SWBooking@610694f1]" name="step1" duration-ms="30557" started-at="2019-08-20T09:01:03Z" description="Navigate to Step01" finished-at="2019-08-20T09:01:34Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- step1 -->
-        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.swissotel.testcases.SWBooking@136e637]" name="tearDown" is-config="true" duration-ms="380" started-at="2019-08-19T16:52:37Z" finished-at="2019-08-19T16:52:37Z">
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.swissotel.testcases.SWBooking@610694f1]" name="tearDown" is-config="true" duration-ms="286" started-at="2019-08-20T09:01:34Z" finished-at="2019-08-20T09:01:34Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=step1 status=SUCCESS method=SWBooking.step1()[pri:1, instance:com.swissotel.testcases.SWBooking@136e637] output={null}]]]>
+                <![CDATA[[TestResult name=step1 status=SUCCESS method=SWBooking.step1()[pri:1, instance:com.swissotel.testcases.SWBooking@610694f1] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="step2()[pri:2, instance:com.swissotel.testcases.SWBooking@136e637]" name="step2" duration-ms="22270" started-at="2019-08-19T16:52:37Z" description="Navigate to Step02" depends-on-methods="com.swissotel.testcases.SWBooking.step1" finished-at="2019-08-19T16:52:59Z">
+        <test-method status="PASS" signature="step2()[pri:2, instance:com.swissotel.testcases.SWBooking@610694f1]" name="step2" duration-ms="27678" started-at="2019-08-20T09:01:34Z" description="Navigate to Step02" depends-on-methods="com.swissotel.testcases.SWBooking.step1" finished-at="2019-08-20T09:02:02Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- step2 -->
-        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.swissotel.testcases.SWBooking@136e637]" name="tearDown" is-config="true" duration-ms="89" started-at="2019-08-19T16:52:59Z" finished-at="2019-08-19T16:52:59Z">
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.swissotel.testcases.SWBooking@610694f1]" name="tearDown" is-config="true" duration-ms="53" started-at="2019-08-20T09:02:02Z" finished-at="2019-08-20T09:02:02Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=step2 status=SUCCESS method=SWBooking.step2()[pri:2, instance:com.swissotel.testcases.SWBooking@136e637] output={null}]]]>
+                <![CDATA[[TestResult name=step2 status=SUCCESS method=SWBooking.step2()[pri:2, instance:com.swissotel.testcases.SWBooking@610694f1] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="step3()[pri:3, instance:com.swissotel.testcases.SWBooking@136e637]" name="step3" duration-ms="22416" started-at="2019-08-19T16:52:59Z" description="Navigate to Step03" depends-on-methods="com.swissotel.testcases.SWBooking.step2" finished-at="2019-08-19T16:53:22Z">
+        <test-method status="PASS" signature="step3()[pri:3, instance:com.swissotel.testcases.SWBooking@610694f1]" name="step3" duration-ms="33367" started-at="2019-08-20T09:02:02Z" description="Navigate to Step03" depends-on-methods="com.swissotel.testcases.SWBooking.step2" finished-at="2019-08-20T09:02:35Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- step3 -->
-        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.swissotel.testcases.SWBooking@136e637]" name="tearDown" is-config="true" duration-ms="143" started-at="2019-08-19T16:53:22Z" finished-at="2019-08-19T16:53:22Z">
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.swissotel.testcases.SWBooking@610694f1]" name="tearDown" is-config="true" duration-ms="47" started-at="2019-08-20T09:02:35Z" finished-at="2019-08-20T09:02:35Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=step3 status=SUCCESS method=SWBooking.step3()[pri:3, instance:com.swissotel.testcases.SWBooking@136e637] output={null}]]]>
+                <![CDATA[[TestResult name=step3 status=SUCCESS method=SWBooking.step3()[pri:3, instance:com.swissotel.testcases.SWBooking@610694f1] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="step4()[pri:4, instance:com.swissotel.testcases.SWBooking@136e637]" name="step4" duration-ms="25596" started-at="2019-08-19T16:53:22Z" description="Navigate to Step04" depends-on-methods="com.swissotel.testcases.SWBooking.step3" finished-at="2019-08-19T16:53:47Z">
+        <test-method status="PASS" signature="step4()[pri:4, instance:com.swissotel.testcases.SWBooking@610694f1]" name="step4" duration-ms="50158" started-at="2019-08-20T09:02:35Z" description="Navigate to Step04" depends-on-methods="com.swissotel.testcases.SWBooking.step3" finished-at="2019-08-20T09:03:25Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- step4 -->
-        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.swissotel.testcases.SWBooking@136e637]" name="tearDown" is-config="true" duration-ms="186" started-at="2019-08-19T16:53:47Z" finished-at="2019-08-19T16:53:48Z">
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.swissotel.testcases.SWBooking@610694f1]" name="tearDown" is-config="true" duration-ms="56" started-at="2019-08-20T09:03:25Z" finished-at="2019-08-20T09:03:26Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=step4 status=SUCCESS method=SWBooking.step4()[pri:4, instance:com.swissotel.testcases.SWBooking@136e637] output={null}]]]>
+                <![CDATA[[TestResult name=step4 status=SUCCESS method=SWBooking.step4()[pri:4, instance:com.swissotel.testcases.SWBooking@610694f1] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="step5()[pri:5, instance:com.swissotel.testcases.SWBooking@136e637]" name="step5" duration-ms="20315" started-at="2019-08-19T16:53:48Z" description="Navigate to Step05" depends-on-methods="com.swissotel.testcases.SWBooking.step4" finished-at="2019-08-19T16:54:08Z">
+        <test-method status="PASS" signature="step5()[pri:5, instance:com.swissotel.testcases.SWBooking@610694f1]" name="step5" duration-ms="37356" started-at="2019-08-20T09:03:26Z" description="Navigate to Step05" depends-on-methods="com.swissotel.testcases.SWBooking.step4" finished-at="2019-08-20T09:04:03Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- step5 -->
-        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.swissotel.testcases.SWBooking@136e637]" name="tearDown" is-config="true" duration-ms="110" started-at="2019-08-19T16:54:08Z" finished-at="2019-08-19T16:54:08Z">
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.swissotel.testcases.SWBooking@610694f1]" name="tearDown" is-config="true" duration-ms="42" started-at="2019-08-20T09:04:03Z" finished-at="2019-08-20T09:04:03Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=step5 status=SUCCESS method=SWBooking.step5()[pri:5, instance:com.swissotel.testcases.SWBooking@136e637] output={null}]]]>
+                <![CDATA[[TestResult name=step5 status=SUCCESS method=SWBooking.step5()[pri:5, instance:com.swissotel.testcases.SWBooking@610694f1] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="details()[pri:6, instance:com.swissotel.testcases.SWBooking@136e637]" name="details" duration-ms="22189" started-at="2019-08-19T16:54:08Z" description="Navigate to Reservation Details Page" depends-on-methods="com.swissotel.testcases.SWBooking.step5" finished-at="2019-08-19T16:54:30Z">
+        <test-method status="PASS" signature="details()[pri:6, instance:com.swissotel.testcases.SWBooking@610694f1]" name="details" duration-ms="31917" started-at="2019-08-20T09:04:03Z" description="Navigate to Reservation Details Page" depends-on-methods="com.swissotel.testcases.SWBooking.step5" finished-at="2019-08-20T09:04:35Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- details -->
-        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.swissotel.testcases.SWBooking@136e637]" name="tearDown" is-config="true" duration-ms="106" started-at="2019-08-19T16:54:30Z" finished-at="2019-08-19T16:54:30Z">
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.swissotel.testcases.SWBooking@610694f1]" name="tearDown" is-config="true" duration-ms="63" started-at="2019-08-20T09:04:35Z" finished-at="2019-08-20T09:04:35Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=details status=SUCCESS method=SWBooking.details()[pri:6, instance:com.swissotel.testcases.SWBooking@136e637] output={null}]]]>
+                <![CDATA[[TestResult name=details status=SUCCESS method=SWBooking.details()[pri:6, instance:com.swissotel.testcases.SWBooking@610694f1] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="modify()[pri:7, instance:com.swissotel.testcases.SWBooking@136e637]" name="modify" duration-ms="24715" started-at="2019-08-19T16:54:30Z" description="Modify Reservation" depends-on-methods="com.swissotel.testcases.SWBooking.details" finished-at="2019-08-19T16:54:55Z">
+        <test-method status="PASS" signature="modify()[pri:7, instance:com.swissotel.testcases.SWBooking@610694f1]" name="modify" duration-ms="29213" started-at="2019-08-20T09:04:35Z" description="Modify Reservation" depends-on-methods="com.swissotel.testcases.SWBooking.details" finished-at="2019-08-20T09:05:04Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- modify -->
-        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.swissotel.testcases.SWBooking@136e637]" name="tearDown" is-config="true" duration-ms="106" started-at="2019-08-19T16:54:55Z" finished-at="2019-08-19T16:54:55Z">
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.swissotel.testcases.SWBooking@610694f1]" name="tearDown" is-config="true" duration-ms="62" started-at="2019-08-20T09:05:04Z" finished-at="2019-08-20T09:05:04Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=modify status=SUCCESS method=SWBooking.modify()[pri:7, instance:com.swissotel.testcases.SWBooking@136e637] output={null}]]]>
+                <![CDATA[[TestResult name=modify status=SUCCESS method=SWBooking.modify()[pri:7, instance:com.swissotel.testcases.SWBooking@610694f1] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="cancel()[pri:8, instance:com.swissotel.testcases.SWBooking@136e637]" name="cancel" duration-ms="23139" started-at="2019-08-19T16:54:55Z" description="Cancel Reservation" depends-on-methods="com.swissotel.testcases.SWBooking.modify" finished-at="2019-08-19T16:55:18Z">
+        <test-method status="PASS" signature="cancel()[pri:8, instance:com.swissotel.testcases.SWBooking@610694f1]" name="cancel" duration-ms="64717" started-at="2019-08-20T09:05:04Z" description="Cancel Reservation" depends-on-methods="com.swissotel.testcases.SWBooking.modify" finished-at="2019-08-20T09:06:09Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- cancel -->
-        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.swissotel.testcases.SWBooking@136e637]" name="tearDown" is-config="true" duration-ms="68" started-at="2019-08-19T16:55:18Z" finished-at="2019-08-19T16:55:18Z">
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.swissotel.testcases.SWBooking@610694f1]" name="tearDown" is-config="true" duration-ms="45" started-at="2019-08-20T09:06:09Z" finished-at="2019-08-20T09:06:09Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=cancel status=SUCCESS method=SWBooking.cancel()[pri:8, instance:com.swissotel.testcases.SWBooking@136e637] output={null}]]]>
+                <![CDATA[[TestResult name=cancel status=SUCCESS method=SWBooking.cancel()[pri:8, instance:com.swissotel.testcases.SWBooking@610694f1] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="closeApplication()[pri:0, instance:com.swissotel.testcases.SWBooking@136e637]" name="closeApplication" is-config="true" duration-ms="5841" started-at="2019-08-19T16:55:18Z" finished-at="2019-08-19T16:55:24Z">
+        <test-method status="PASS" signature="closeApplication()[pri:0, instance:com.swissotel.testcases.SWBooking@610694f1]" name="closeApplication" is-config="true" duration-ms="5002" started-at="2019-08-20T09:06:09Z" finished-at="2019-08-20T09:06:14Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- closeApplication -->

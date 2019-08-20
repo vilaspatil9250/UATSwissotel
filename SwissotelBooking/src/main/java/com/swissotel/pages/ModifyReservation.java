@@ -8,6 +8,7 @@ import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
 import com.swissotel.base.BaseClass;
+import com.swissotel.base.ExcelData;
 import com.swissotel.util.TestUtil;
 
 public class ModifyReservation extends BaseClass {
@@ -28,10 +29,11 @@ public class ModifyReservation extends BaseClass {
 	}
 
 	public void enterdata() throws Exception {
+		ExcelData excel = new ExcelData();
 		arrivaldate.clear();
-		arrivaldate.sendKeys(TestUtil.ModifyarrivalDate());
+		arrivaldate.sendKeys(excel.modifyfieldvalue(2));
 		departuredate.clear();
-		departuredate.sendKeys(TestUtil.ModifydepartureDate());
+		departuredate.sendKeys(excel.modifyfieldvalue(3));
 	}
 
 	public SwPage05 modify() throws Exception {

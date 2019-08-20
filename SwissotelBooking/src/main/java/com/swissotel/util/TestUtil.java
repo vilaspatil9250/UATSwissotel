@@ -11,6 +11,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.io.FileHandler;
+import org.testng.Assert;
 
 import com.assertthat.selenium_shutterbug.core.Shutterbug;
 import com.assertthat.selenium_shutterbug.utils.web.ScrollStrategy;
@@ -79,9 +80,12 @@ public class TestUtil extends BaseClass {
 		if(browsername.equalsIgnoreCase("firefox")) {
 	System.out.println("Screenshot method");
 		} else {
+//			System.out.println("Screenshot method");
 		Shutterbug.shootPage(driver, ScrollStrategy.BOTH_DIRECTIONS, 2000, true).withName(TestUtil.getCurrentDateTime()).save("./Screenshots/");
 		}
 		}
 	
-	
+	public static void verify(String expected, String actual) {
+		Assert.assertEquals(expected, actual);
+	}
 }

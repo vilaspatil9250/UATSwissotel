@@ -23,6 +23,11 @@ public class ExcelData extends BaseClass{
 		return inputvalue;
 	}
 	
+	public String modifyfieldvalue(int rowno) {
+		String inputvalue = datasheet.getRow(rowno).getCell(2).getStringCellValue();
+		return inputvalue;
+	}
+	
 	public String fieldvaluenum(int rowno) {
 //		int inputnum = (int)datasheet.getRow(rowno).getCell(1).getNumericCellValue();
 		String inputvalue = Integer.toString((int)datasheet.getRow(rowno).getCell(1).getNumericCellValue());

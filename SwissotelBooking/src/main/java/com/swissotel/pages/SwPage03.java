@@ -12,12 +12,20 @@ import org.openqa.selenium.support.PageFactory;
 import com.swissotel.base.BaseClass;
 
 public class SwPage03 extends BaseClass {
+	public String  expectedpagename = "ADD EXTRAS"; 
+	
+	@FindBy(how = How.ID, using = "ctl00_ctl00_cphMainContent_PageTitle_lblHeader")
+	WebElement pagename;
 	
 	@FindBy(how=How.ID, using="ctl00_ctl00_cphMainContent_FooterButton_btnSubmit")
 	WebElement step3contiunueButton;
 	
 	public SwPage03() throws IOException{
 		PageFactory.initElements(driver, this); 
+	}
+	
+	public String actualpagename() {
+		return pagename.getText();
 	}
 	
 	public void getPageTitle() {

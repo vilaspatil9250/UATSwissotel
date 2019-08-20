@@ -1,6 +1,5 @@
 package com.swissotel.testcases;
 
-import java.io.File;
 import java.io.IOException;
 
 import org.openqa.selenium.WebDriver;
@@ -72,12 +71,10 @@ public class SWBooking extends BaseClass {
 
 	@Test(priority = 1, description = "Navigate to Step01")
 	public void step1() throws Exception {
-		logger = report.createTest("Step 01 ");
-		String pageTitle = page01.validatePageTitle();
-		logger.info("Navigated to Step1");
-//		Assert.assertEquals(pageTitle, "- Swissôtel Hotels And Resorts");
+		logger = report.createTest("Single Room Booking - Anonymous User");
+//		logger.info("Navigated to Step1");
+		TestUtil.verify(page01.expectedpagename, page01.actualpagename());
 		page01.enterdata();
-		logger.pass("data entered in Step1 successfully");
 		TestUtil.screenshot();
 		page01.checkavailability();
 	}
@@ -85,7 +82,8 @@ public class SWBooking extends BaseClass {
 	@Test(priority = 2, description = "Navigate to Step02", dependsOnMethods = {"step1"})
 	public void step2() throws Exception {
 		logger = report.createTest("Step 02");
-		page02.getPageTitle();
+		TestUtil.verify(page02.expectedpagename, page02.actualpagename());
+//		page02.getPageTitle();
 		page02.enterdata();
 		TestUtil.screenshot();
 		page02.selectRoomContinue();
@@ -94,15 +92,17 @@ public class SWBooking extends BaseClass {
 	@Test(priority = 3, description = "Navigate to Step03", dependsOnMethods = {"step2"})
 	public void step3() throws Exception {
 		logger = report.createTest("Step 03");
+		TestUtil.verify(page03.expectedpagename, page03.actualpagename());
 		TestUtil.screenshot();
-		page03.getPageTitle();
+//		page03.getPageTitle();
 		page03.addExtraContinue();
 	}
 
 	@Test(priority = 4, description = "Navigate to Step04", dependsOnMethods = {"step3"})
 	public void step4() throws Exception {
 		logger = report.createTest("Step 04");
-		page04.getPageTitle();
+		TestUtil.verify(page04.expectedpagename, page04.actualpagename());
+//		page04.getPageTitle();
 		page04.enterdetails();
 		TestUtil.screenshot();
 		page04.submitdetails();
@@ -111,8 +111,9 @@ public class SWBooking extends BaseClass {
 	@Test(priority = 5, description = "Navigate to Step05", dependsOnMethods = {"step4"})
 	public void step5() throws Exception {
 		logger = report.createTest("Step 05");
+		TestUtil.verify(page05.expectedpagename, page05.actualpagename());
 		TestUtil.screenshot();
-		page05.getPageTitle();
+//		page05.getPageTitle();
 		page05.confirmNumber();
 		page05.closeSurvey();
 		page05.ModifyRes();
@@ -121,15 +122,16 @@ public class SWBooking extends BaseClass {
 	@Test(priority = 6, description = "Navigate to Reservation Details Page", dependsOnMethods = {"step5"})
 	public void details() throws Exception {
 		logger = report.createTest("Reservation Details");
+		TestUtil.verify(reserdetails.expectedpagename, reserdetails.actualpagename());
 		TestUtil.screenshot();
-		reserdetails.getPageTitle();
+//		reserdetails.getPageTitle();
 		reserdetails.ModifyRes();
 	}
 
 	@Test(priority = 7, description = "Modify Reservation", dependsOnMethods = {"details"})
 	public void modify() throws Exception {
 		logger = report.createTest("Modify Reservation");
-		modifyRes.getPageTitle();
+//		modifyRes.getPageTitle();
 		modifyRes.enterdata();
 		TestUtil.screenshot();
 		modifyRes.modify();
@@ -141,11 +143,11 @@ public class SWBooking extends BaseClass {
 		TestUtil.screenshot();
 		page05.ModifyRes();
 		reserdetails.CancelRes();
-		canRes.getPageTitle();
+//		canRes.getPageTitle();
 		canRes.cancelWindow();
 		TestUtil.screenshot();
 		System.out.println("Booking Cancelled successfully.");
-//		canRes.CancelNumber();
+		page05.CancelNumber();
 	}
 	
 	@AfterMethod
@@ -163,7 +165,7 @@ public class SWBooking extends BaseClass {
 	@AfterClass
 	public void closeApplication() throws Exception {
 		Thread.sleep(5000);
-		close();
+//		close();
 		System.out.println("Browser Closed");
 	}
 

@@ -11,16 +11,24 @@ import org.openqa.selenium.support.PageFactory;
 import com.swissotel.base.BaseClass;
 
 public class ReservationDetails extends BaseClass {
+	public String  expectedpagename = "YOUR RESERVATION"; 
 
 	public ReservationDetails() throws IOException {
 		PageFactory.initElements(driver, this);
 	}
 
+	@FindBy(how = How.ID, using = "ctl00_ctl00_cphMainContent_PageTitle_lblYourReservation")
+	WebElement pagename;
+	
 	@FindBy(how = How.LINK_TEXT, using = "MODIFY RESERVATION")
 	WebElement modres;
 	
 	@FindBy(how = How.LINK_TEXT, using = "CANCEL RESERVATION")
 	WebElement cancelres;
+	
+	public String actualpagename() {
+		return pagename.getText();
+	}
 	
 	public void getPageTitle() {
 		System.out.println("Reservation Details Page Title : " + driver.getTitle());

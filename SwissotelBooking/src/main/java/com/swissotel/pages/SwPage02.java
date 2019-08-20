@@ -13,15 +13,23 @@ import org.openqa.selenium.support.PageFactory;
 import com.swissotel.base.BaseClass;
 
 public class SwPage02 extends BaseClass {
+	public String  expectedpagename = "SELECT A ROOM"; 
 
 	public SwPage02() throws IOException {
 		PageFactory.initElements(driver, this);
 	}
 
+	@FindBy(how = How.ID, using = "ctl00_ctl00_cphMainContent_PageTitle_reservationTitleBar_lblTitle")
+	WebElement pagename;
+	
 	public void getPageTitle() {
 		System.out.println("Page 2 Title : " + driver.getTitle());
 	}
-
+	
+	public String actualpagename() {
+		return pagename.getText();
+	}
+		
 	public void SelectRoomGroup(String roomGroupName) {
 		WebElement roomgroup = driver.findElement(By.xpath("//*[@id='btnContentContainer']"));
 //		WebElement roomgroup = driver.findElement(By.xpath("//*[@id='btnContentContainer']/span[contains(text(),'"+roomGroupName+"')]"));

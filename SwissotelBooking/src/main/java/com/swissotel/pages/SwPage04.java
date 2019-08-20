@@ -10,11 +10,14 @@ import com.swissotel.base.BaseClass;
 import com.swissotel.base.ExcelData;
 
 public class SwPage04 extends BaseClass {
+	public String  expectedpagename = "INFO & PAYMENT"; 
+	
 	public SwPage04() throws Exception{
 		PageFactory.initElements(driver, this);
 	}
 	
-	
+	@FindBy(how = How.ID, using = "ctl00_ctl00_cphMainContent_PageTitle_ucReservationTitle_lblTitle")
+	WebElement pagename;
 
 	@FindBy(how=How.ID, using="ctl00_ctl00_cphMainContent_Content_ddlTitle")
 	WebElement title;
@@ -68,6 +71,10 @@ public class SwPage04 extends BaseClass {
 		System.out.println("Page 4 Title : " + driver.getTitle());
 	}
 	
+	public String actualpagename() {
+		return pagename.getText();
+	}
+	
 	public void enterdetails() throws Exception{
 		ExcelData excel = new ExcelData();	
 	Select titlelist = new Select(title);
@@ -77,9 +84,9 @@ public class SwPage04 extends BaseClass {
 	lastname.sendKeys(excel.fieldvalue(6));
 	
 	Select prefixlist = new Select(prefix);
-	prefixlist.selectByValue(excel.fieldvaluenum(7));
+	prefixlist.selectByValue(excel.fieldvalue(7));
 	
-	telephone.sendKeys(excel.fieldvaluenum(8));
+	telephone.sendKeys(excel.fieldvalue(8));
 	email.sendKeys(excel.fieldvalue(9));
 	addresslineone.sendKeys(excel.fieldvalue(10));
 	
@@ -87,7 +94,7 @@ public class SwPage04 extends BaseClass {
 	countrylist.selectByValue(excel.fieldvalue(11));
 	
 	city.sendKeys(excel.fieldvalue(12));
-	zipcode.sendKeys(excel.fieldvaluenum(14));
+	zipcode.sendKeys(excel.fieldvalue(14));
 	
 	Select cardtypelist = new Select(cardtype);
 	cardtypelist.selectByValue("DC");
@@ -95,8 +102,8 @@ public class SwPage04 extends BaseClass {
 	cardnumber.sendKeys(excel.fieldvalue(15));
 	cardtypelist.selectByValue(excel.fieldvalue(16));
 	
-	month.sendKeys(excel.fieldvaluenum(17));
-	year.sendKeys(excel.fieldvaluenum(18));
+	month.sendKeys(excel.fieldvalue(17));
+	year.sendKeys(excel.fieldvalue(18));
 	
 	termsconditions.click();
 	}

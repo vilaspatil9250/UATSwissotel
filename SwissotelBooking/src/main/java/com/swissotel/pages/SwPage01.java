@@ -13,10 +13,13 @@ import com.swissotel.base.ExcelData;
 import com.swissotel.util.TestUtil;
 
 public class SwPage01 extends BaseClass {
+	public String  expectedpagename = "CHECK AVAILABILITY"; 
 	
 	@FindBy(how = How.ID, using = "ally_Close")
 	WebElement allybanner;
 	
+	@FindBy(how = How.ID, using = "ctl00_ctl00_cphMainContent_PageTitle_lblHeader")
+	WebElement pagename;
 
 	@FindBy(how = How.ID, using = "ddlDestination")
 	WebElement destination;
@@ -34,6 +37,10 @@ public class SwPage01 extends BaseClass {
 		PageFactory.initElements(driver, this);
 	}
 
+	public String actualpagename() {
+		return pagename.getText();
+	}
+	
 	public String validatePageTitle() {
 		return driver.getTitle();
 	}
